@@ -8,9 +8,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector3 _moveDirection = Vector3.zero;
     private bool _onLadder = false;
+    private Vector3 _startPosition;
 
 	void Start () {
-	
+        _startPosition = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -46,13 +47,33 @@ public class PlayerMovement : MonoBehaviour {
         controller.Move(_moveDirection * Time.deltaTime);
     }
 
+    private void Die()
+    {
+        Debug.Log("dead.");
+
+        // play a sound
+        AudioSource deathSound = GetComponent<AudioSource>();
+        deathSound.Play();
+
+        // remove life
+
+        // give temporary invulnerability
+
+        // respawn
+        transform.position = _startPosition;
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ladder"))
         {
-            Gravity = 20f;
             _onLadder = true;
             Debug.Log("On ladder");
+        }
+        else if(other.gameObject.CompareTag("Hazard"))
+        {
+            Die();
         }
     }
 
@@ -60,7 +81,6 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Ladder"))
         {
-            Gravity = 20f;
             _onLadder = false;
             Debug.Log("Off ladder");
         }
