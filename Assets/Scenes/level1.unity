@@ -20,10 +20,10 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.21323532, g: 0.15835857, b: 0.15835857, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.27
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -128,6 +128,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
   m_IsPrefabParent: 0
@@ -168,11 +172,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459108, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
       propertyPath: m_Name
       value: Torch (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
@@ -211,7 +219,7 @@ Transform:
   - {fileID: 1085983299}
   - {fileID: 1838586142}
   m_Father: {fileID: 1877196583}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1 &335180818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1096,7 @@ GameObject:
   - 114: {fileID: 940777611}
   - 143: {fileID: 940777610}
   - 82: {fileID: 940777612}
+  - 114: {fileID: 940777613}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1148,7 +1157,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 940777605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.831, y: 2.981, z: -0.835}
+  m_LocalPosition: {x: -2.831, y: 2.607, z: -0.835}
   m_LocalScale: {x: 0.53706014, y: 0.25036347, z: 0.5370594}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1258,6 +1267,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &940777613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940777605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189b0b71bf777c04889f9ace6faf3b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0.1
 --- !u!4 &991883486 stripped
 Transform:
   m_PrefabParentObject: {fileID: 484940, guid: 042c7f32d37a333418934630730bbb27, type: 2}
@@ -1291,7 +1312,7 @@ Transform:
   m_LocalScale: {x: 10.189119, y: 0.38787383, z: 6.0157003}
   m_Children: []
   m_Father: {fileID: 1877196583}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!23 &1063744789
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1374,7 +1395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484940, guid: 042c7f32d37a333418934630730bbb27, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 155526, guid: 042c7f32d37a333418934630730bbb27, type: 2}
       propertyPath: m_Name
@@ -1471,6 +1492,7 @@ GameObject:
   - 124: {fileID: 1137199035}
   - 81: {fileID: 1137199034}
   - 114: {fileID: 1137199039}
+  - 114: {fileID: 1137199040}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1551,12 +1573,24 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1137199033}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1139efe385742b4d8e918a5cdc6c726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 940777609}
+--- !u!114 &1137199040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137199033}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d8bccd2fb1f964f9352efe80f68f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 5
 --- !u!1001 &1148871972
 Prefab:
   m_ObjectHideFlags: 0
@@ -1599,6 +1633,10 @@ Prefab:
     - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
       propertyPath: m_Name
       value: Torch (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
@@ -1780,7 +1818,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1877196583}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!4 &1485933367 stripped
 Transform:
   m_PrefabParentObject: {fileID: 459108, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
@@ -1808,7 +1846,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513506595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.483, y: 0.348, z: 1.148}
+  m_LocalPosition: {x: 1.483, y: -1.8, z: 3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1877196583}
@@ -1890,6 +1928,10 @@ Prefab:
       value: Torch (1)
       objectReference: {fileID: 0}
     - target: {fileID: 195162, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1983,6 +2025,14 @@ MonoBehaviour:
     * Swap in some models with animation
 
     * Make torch light flicker
+
+    * Display score & life
+
+    * Add a game over screen
+
+    * Add a start screen
+
+    * Better mouse camera
 
     * VR support for controlling the camera'
 --- !u!222 &1662354954
@@ -2187,11 +2237,11 @@ Transform:
   - {fileID: 1818636132}
   - {fileID: 138028915}
   - {fileID: 1838052896}
+  - {fileID: 1485933367}
   - {fileID: 1449469874}
   - {fileID: 245703812}
   - {fileID: 694198277}
   - {fileID: 1063744788}
-  - {fileID: 1485933367}
   - {fileID: 1513506596}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2404,6 +2454,10 @@ Prefab:
     - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
       propertyPath: m_Name
       value: Torch (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 139654, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40106d487f3aa2a498c0789e2dcf65b4, type: 2}
