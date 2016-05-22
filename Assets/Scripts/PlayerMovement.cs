@@ -75,6 +75,15 @@ public class PlayerMovement : MonoBehaviour {
         {
             Die();
         }
+        else if(other.gameObject.CompareTag("Treasure"))
+        {
+            // TO DO - fix this
+            AudioSource pickupSound = other.GetComponent<AudioSource>();
+            pickupSound.Play();
+            Destroy(other.gameObject);
+            // TO DO - play sound
+            //Destroy(other.gameObject, 2f);
+        }
     }
 
     private void OnTriggerExit(Collider other)
