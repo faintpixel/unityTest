@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
@@ -6,13 +7,19 @@ public class PlayerMovement : MonoBehaviour {
     public float JumpSpeed = 5f;
     public float Gravity = 20f;
 
+    public Text countText;
+
     private Vector3 _moveDirection = Vector3.zero;
     private bool _onLadder = false;
     private Vector3 _startPosition;
 
+    private int _treasureCount;
+
 	void Start () {
         _startPosition = transform.position;
-	}
+        _treasureCount = 0;
+        SetCountText();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -76,13 +83,12 @@ public class PlayerMovement : MonoBehaviour {
             Die();
         }
         else if(other.gameObject.CompareTag("Treasure"))
-        {
-            // TO DO - fix this
-            AudioSource pickupSound = other.GetComponent<AudioSource>();
-            pickupSound.Play();
+        {           
+            AudioSource pickupSound = other.GetComponent<AudioSource>();         
+            AudioSource.PlayClipAtPoint(pickupSound.clip, transform.position);
             Destroy(other.gameObject);
-            // TO DO - play sound
-            //Destroy(other.gameObject, 2f);
+            _treasureCount++;
+            SetCountText();           
         }
     }
 
@@ -93,5 +99,10 @@ public class PlayerMovement : MonoBehaviour {
             _onLadder = false;
             Debug.Log("Off ladder");
         }
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + _treasureCount.ToString();       
     }
 }
