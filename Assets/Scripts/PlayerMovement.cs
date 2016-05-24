@@ -12,23 +12,23 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 _moveDirection = Vector3.zero;
     private bool _onLadder = false;
     private Vector3 _startPosition;
+    private CharacterController _controller;
 
     private int _treasureCount;
 
 	void Start () {
         _startPosition = transform.position;
         _treasureCount = 0;
+        _controller = GetComponent<CharacterController>();
         SetCountText();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        CharacterController controller = GetComponent<CharacterController>();
-
         if (Input.GetButton("Jump") && _onLadder)
-            HandleLadderInput(controller);
+            HandleLadderInput(_controller);
         else
-            HandleRegularInput(controller);        
+            HandleRegularInput(_controller);        
 	}
 
     private void HandleLadderInput(CharacterController controller)
